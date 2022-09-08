@@ -1,0 +1,67 @@
+@font-face {
+    font-family: codystar;
+    src: url(Codystar-Regular.ttf);
+}
+
+@font-face {
+    font-family: jedi;
+    src: url(Starjedi.ttf);
+}
+
+h2 {
+    color:darkgoldenrod;
+    font-variant: small-caps;
+    font-family: codystar;
+    text-align: center;
+    text-decoration: underline;
+    font-size: 30pt;
+}
+
+h3 {
+    color:darkgoldenrod;
+    font-family: codystar;
+    text-align: center;
+    font-size: 20pt;
+    text-shadow: 1pt 1pt 1pt black;
+
+}
+
+body {
+    background-image: url(./star-wars-backgrounds-14.jpg);
+}
+
+.title {
+    color: white;
+    text-align: center;
+    font-family: jedi;
+    font-size: 50pt;
+    text-shadow: 2pt 2pt 2pt yellow;
+    letter-spacing: 5px;
+    -webkit-text-stroke: 1px black;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    background-color: blueviolet;
+    color:aliceblue;
+    height:200px;
+    width: 200px;
+    border-radius: 50%;
+    box-shadow: 10px 5px 10px black;
+    font-family: jedi;
+    font-size: 20pt;
+    -webkit-text-stroke: 1px black;
+    letter-spacing: 2px;
+    text-shadow: 1pt 1pt 1pt black;
+
+}
+
+.list {
+    background-color: #292828;
+    border-radius: 20px;
+}
