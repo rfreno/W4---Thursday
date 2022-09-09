@@ -1,25 +1,40 @@
 
-const residents = document.querySelector('#resBtn')
+const alderaan = document.querySelector('#resBtn')
+const tatooine = document.querySelector('#tatBtn')
+const endor = document.querySelector('#enBtn')
+const naboo = document.querySelector('#nabBtn')
+const coruscant = document.querySelector('#corBtn')
 let resList = document.querySelector('#list')
+let planetIndex = 0
 
-const buttonFunction = () => {
-    // console.log('button clicked')
+const clearPage = () => {
+    resList.innerHTML = ``
+}
 
-    // Pseudocode for following axios request
-    // axios request for Alderaan info
-        // inside callback, loop over residents
-            // make another get request for each URL
-                // another .then with own callback
-                    // create h2 element - content is the name of resident - append to HTML doc
+const buttonFunction = btnClicked => {
+    clearPage()
 
-    axios.get("https://swapi.dev/api/planets/2/")
+    if (btnClicked === 'alderaan') {
+        planetIndex = 2
+    } else if (btnClicked === 'tatooine') {
+        planetIndex = 1
+    } else if (btnClicked === 'endor') {
+        planetIndex = 7
+    } else if (btnClicked === 'naboo') {
+        planetIndex = 8
+    } else if (btnClicked === 'coruscant') {
+        planetIndex = 9
+    }
+    
+
+    axios.get(`https://swapi.dev/api/planets/${planetIndex}`)
         .then(planet => {
             const planetName = document.createElement('h2')
             planetName.textContent = planet.data.name
             resList.append(planetName)
+            console.log(planetName)
             for (let i = 0; i < planet.data.residents.length; i++) {
                 axios.get(planet.data.residents[i]).then(person => {
-                    console.log(person.data)
                     const newPerson = document.createElement('h3')
                     newPerson.textContent = person.data.name
                     resList.append(newPerson)
@@ -28,4 +43,9 @@ const buttonFunction = () => {
         })
 }
 
-residents.addEventListener('click', buttonFunction)
+
+alderaan.addEventListener('click',() => buttonFunction('alderaan'))
+tatooine.addEventListener('click',() => buttonFunction('tatooine'))
+endor.addEventListener('click',() => buttonFunction('endor'))
+naboo.addEventListener('click',() => buttonFunction('naboo'))
+coruscant.addEventListener('click',() => buttonFunction('coruscant'))
